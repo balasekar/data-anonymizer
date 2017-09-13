@@ -1,7 +1,7 @@
 {
-  "name": "me-devtools",
+  "name": "data-anonymizer",
   "version": "1.2.0",
-  "description": "",
+  "description": "This project anonymizes the sensitive customer data and generates test data in test DB",
   "scripts": {
     "start": "./node_modules/.bin/nodemon --watch server ./server"
   },
