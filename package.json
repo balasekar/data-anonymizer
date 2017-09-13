@@ -1,0 +1,30 @@
+{
+  "name": "me-devtools",
+  "version": "1.2.0",
+  "description": "",
+  "scripts": {
+    "start": "./node_modules/.bin/nodemon --watch server ./server"
+  },
+  "engines": {
+    "node": ">=6.10.0"
+  },
+  "dependencies": {
+    "bossy": "^3.0.4",
+    "config": "^1.26.2",
+    "data-anonymizer": "^0.1.0",
+    "fs": "0.0.1-security",
+    "jsonfile": "^3.0.1",
+    "lodash": "^4.17.4",
+    "moment": "^2.18.1",
+    "nodemon": "^1.11.0",
+    "pg": "^7.1.2",
+    "pg-promise": "^6.4.0",
+    "pg-query": "^0.11.0",
+    "squel": "^5.11.1"
+  },
+  "devDependencies": {
+    "eslint": "^4.4.1",
+    "eslint-config-airbnb-base": "^11.3.1",
+    "eslint-plugin-import": "^2.7.0"
+  }
+}

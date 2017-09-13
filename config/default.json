@@ -1,0 +1,162 @@
+{
+  "name": "My Energy Data Anonymizer",
+  "logQueries": true,
+  "file": {
+    "inputFile": "input.json",
+    "outputFile": "output.sql",
+    "dataPath": "../data/"
+  },
+  "postgres": {
+    "host": "192.168.99.100",
+    "port": 5432,
+    "username": "myenergy",
+    "password": "myenergy",
+    "db": "myenergy",
+    "poolSize": 15,
+    "ssl": false,
+    "poolIdleTimeout": 600000,
+    "applicationName": "me-anonymizer"
+  },
+  "defaultUser": {
+    "accNo": -1000
+  },
+  "data": {
+    "utilTables":[
+      {
+        "schema": "me",
+        "table": "feature",
+        "limit": 100
+      },
+      {
+        "schema": "me",
+        "table": "user_group",
+        "limit": 100
+      },
+      {
+        "schema": "me",
+        "table": "enabled_feature",
+        "limit": 100
+      },
+      {
+        "schema": "prelive",
+        "table": "tariffpricemaster",
+        "limit": 1000
+      }
+    ],
+    "tables": [
+      {
+        "schema": "live",
+        "table": "contract",
+        "key": "contractnumber",
+        "value": "contractnumber",
+        "anon_columns": []
+      },
+      {
+        "schema": "live",
+        "table": "customeraccount",
+        "key": "accountnumber",
+        "value": "accountnumber",
+        "anon_columns": [
+          "billingaddressline1",
+          "billingaddressline2",
+          "billingaddressline3",
+          "billingaddressline4",
+          "billingaddressline5",
+          "billingpostcode"
+        ]
+      },
+      {
+        "schema": "live",
+        "table": "customer",
+        "key": "businesspartnerid",
+        "value": "businesspartnerid",
+        "anon_columns": [
+          "firstname",
+          "lastname",
+          "dateofbirth",
+          "telephonenumber",
+          "emailaddress"
+        ]
+      },
+
+      {
+        "schema": "live",
+        "table": "bill",
+        "key": "contractnumber",
+        "value": "contractnumber",
+        "anon_columns": []
+      },
+      {
+        "schema": "live",
+        "table": "tariff",
+        "key": "installationnumber",
+        "value": "installationnumber",
+        "anon_columns": []
+      },
+      {
+        "schema": "live",
+        "table": "premise",
+        "key": "premiseid",
+        "value": "premiseid",
+        "anon_columns": []
+      },
+      {
+        "schema": "live",
+        "table": "meter",
+        "key": "installationnumber",
+        "value": "installationnumber",
+        "anon_columns": []
+      },
+      {
+        "schema": "live",
+        "table": "datarange",
+        "key": "contract_number",
+        "value": "contractnumber",
+        "anon_columns": []
+      },
+      {
+        "schema": "me",
+        "table": "accounteligibility",
+        "key": "accountnumber",
+        "value": "accountnumber",
+        "anon_columns": []
+      },
+      {
+        "schema": "me",
+        "table": "customerevents",
+        "key": "accountnumber",
+        "value": "accountnumber",
+        "anon_columns": []
+      },
+      {
+        "schema": "me",
+        "table": "home_profile",
+        "key": "premise_id",
+        "value": "premiseid",
+        "anon_columns": []
+      },
+      {
+        "schema": "me",
+        "table": "trialcustomers",
+        "key": "premiseid",
+        "value": "premiseid",
+        "anon_columns": []
+      },
+      {
+        "schema": "analytics",
+        "table": "monthly_usage_breakdown",
+        "key": "business_partner_id",
+        "value": "businesspartnerid",
+        "anon_columns": []
+      },
+      {
+        "schema": "live",
+        "table": "consumptionv2",
+        "key": "contractnumber",
+        "value": "contractnumber",
+        "anon_columns": []
+      }
+
+    ]
+  }
+}

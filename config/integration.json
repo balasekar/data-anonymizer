@@ -1,0 +1,13 @@
+{
+  "postgres": {
+    "host": "10.40.246.118",
+    "port": 5432,
+    "username": "myenergy",
+    "password": "myenergy",
+    "db": "myenergy",
+    "poolSize": 15,
+    "ssl": false,
+    "poolIdleTimeout": 600000,
+    "applicationName": "me-anon"
+  }
+}
