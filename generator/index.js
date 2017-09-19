@@ -75,11 +75,13 @@ const dataGenerator = {
           tableDataObj.push(JSON.parse(JSON.stringify(myEnergyData.util_data_list[i][j])));
         }
         if (tableDataObj && tableDataObj.length > 0) {
-          sqlString = sql.insert().into(tableName)
-            .setFieldsRows(JSON.parse(JSON.stringify(tableDataObj))).toString()
-            .concat('; \n\n');
+          for (let k = 0; k < tableDataObj.length; k += 1) {
+            sqlString = sql.insert().into(tableName)
+              .setFieldsRows([JSON.parse(JSON.stringify(tableDataObj[k]))]).toString()
+              .concat('; \n\n');
+            fileStream.write(sqlString);
+          }
         }
-        fileStream.write(sqlString);
       }
 
       fileStream.write('----------------------- User Data ------------------------------------------\n\n\n');
@@ -93,11 +95,13 @@ const dataGenerator = {
           tableDataObj.push(JSON.parse(JSON.stringify(myEnergyData.anon_data_list[i][j])));
         }
         if (tableDataObj && tableDataObj.length > 0) {
-          sqlString = sql.insert().into(tableName)
-            .setFieldsRows(JSON.parse(JSON.stringify(tableDataObj))).toString()
-            .concat('; \n\n');
+          for (let k = 0; k < tableDataObj.length; k += 1) {
+            sqlString = sql.insert().into(tableName)
+              .setFieldsRows([JSON.parse(JSON.stringify(tableDataObj[k]))]).toString()
+              .concat('; \n\n');
+            fileStream.write(sqlString);
+          }
         }
-        fileStream.write(sqlString);
       }
 
       fileStream.end();
